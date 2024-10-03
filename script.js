@@ -4,42 +4,51 @@ const deposit = document.getElementById('depositBtn');
 const withdraw = document.getElementById('withdrawBtn');
 const exit = document.getElementById('exitBtn');
 
-// Retrieve balance from local storage, or set it to 0 if it doesn't exist
+// Local Storage
 let balance = parseFloat(localStorage.getItem('balance')) || 0;
 amountBalance.innerText = `₱${balance}`;
 
-// Functionality for check balance button
+// Check Balance
 checkBalance.addEventListener('click', () => {
     alert(`Current Balance: ${balance}`);
 });
 
-// Functionality for deposit button
-deposit.addEventListener('click', () =>  {
+// Deposit
+deposit.addEventListener('click', () => {
     let amount = prompt('Enter Deposit Amount: ');
     amount = parseFloat(amount);
-    if (!isNaN(amount) && amount > 0) {
-        balance += amount;
-        localStorage.setItem('balance', balance); // Save to local storage
-        amountBalance.innerText = `₱${balance}`;
-    } else {
+    
+    if (isNaN(amount)) {
         alert('Kindly enter a valid amount');
+    } else if (amount <= 0) {
+        alert('Please enter a positive amount.');
+    } else {
+        balance += amount;
+        localStorage.setItem('balance', balance);
+        amountBalance.innerText = `₱${balance}`;
     }
 });
 
-// Functionality for withdraw
+
+// Withdraw
 withdraw.addEventListener('click', () => {
     let withdrawAmount = prompt('Enter Withdraw Amount: ');
     withdrawAmount = parseFloat(withdrawAmount);
-    if (!isNaN(withdrawAmount) && withdrawAmount > 0 && withdrawAmount <= balance) {
-        balance -= withdrawAmount;
-        localStorage.setItem('balance', balance); // Save to local storage
-        amountBalance.innerText = `₱${balance}`;
+    
+    if (isNaN(withdrawAmount)) {
+        alert('Invalid amount. Please enter a numeric value.');
+    } else if (withdrawAmount <= 0) {
+        alert('Please enter a positive amount.');
+    } else if (withdrawAmount > balance) {
+        alert('Insufficient balance. Please check your balance.');
     } else {
-        alert('Kindly enter a valid amount or check your balance');
+        balance -= withdrawAmount;
+        localStorage.setItem('balance', balance); 
+        amountBalance.innerText = `₱${balance}`;
     }
 });
 
-// Functionality for exit button
+// Exit
 exit.addEventListener('click', () => {
     setTimeout(() => {
         alert('Thanks for using the ATM Simulation!');
