@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-family: 'Poppins';
+    font-weight: bold;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(flat-mountains\ \(1\).svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 50vw;
+    height: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #FFFFFF;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.text {
+    font-size: 0.5em;
+    margin-bottom: 21.44px;
+    font-weight: lighter;
+}
+
+.balance-container {
+    width: 100%;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 5px 0px;
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+}
+
+.balance-container p {
+    margin: 0;
+}
+
+.input {
+    width: 100%;
+    margin: 1rem 0px;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btns {
+    padding: 15px;
+    width: 100%;
+    border: none;
+   
+}
+
+#checkBalanceBtn {
+    background-color: #ADD8E6;
+    color: #FFFFFF;
+}
+
+#depositBtn {
+    background-color: #4CAF50;
+    color: #FFFFFF;
+}
+
+#withdrawBtn {
+    background-color: #FF9800;
+    color: #000000;
+}
+
+#exitBtn {
+    background-color: #F44336;
+    color: #FFFFFF;
+}
